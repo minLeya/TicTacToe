@@ -38,20 +38,20 @@ public class Main {
             int column = 0;
 
             while(true) {
-                System.out.println("Enter a row (0, 1 or 2): ");
+                System.out.println("Enter a row (1, 2 or 3): ");
                 row = scanner.nextInt();
-                System.out.println("Enter a column (0, 1 or 2): ");
+                System.out.println("Enter a column (1, 2 or 3): ");
                 column = scanner.nextInt();
 
                 if (row < 0 || column < 0 || row > 2 || column > 2) {
                     System.out.println("Values are out of bounds!");
-                } else if (board[row][column] != '-') {
+                } else if (board[row - 1][column - 1] != '-') {
                     System.out.println("Someone has already made a move!");
                 } else
                     break;
             }
 
-            board[row][column] = symbol;
+            board[row - 1][column - 1] = symbol;
 
             if(hasWon(board) == 'X') {
                 System.out.println(firstPlayer + " has won!");
